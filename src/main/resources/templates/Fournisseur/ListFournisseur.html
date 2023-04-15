@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div th:replace="fragments/header :: header" />
+</head>
+
+<body id="page-top">
+<div id="wrapper">
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+<div th:replace="fragments/navbar :: navbar" />
+            <div class="container-fluid">
+
+<h1 class="h3 mb-2 text-gray-800">Liste de nos fournisseurs</h1>
+
+<div th:switch="${fournisseurs}">
+    <p class="mb-4">Pour ajouter un nouveau fournisseur cliquer ici <a class="btn btn-primary"
+                                                                    th:href="@{addfournisseur}">Ajouter</a></p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">fournisseurs</h6>
+        </div>
+        <h2 th:case="null">No fournisseur yet!</h2>
+        <div th:case="*">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" >
+                        <tr>
+                            <th>nom</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>telephone</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr>
+                        <tr th:each="fournisseur : ${fournisseurs}">
+                            <td th:text="${fournisseur.nom}"></td>
+                            <td th:text="${fournisseur.email}"></td>
+                            <td th:text="${fournisseur.adresse}"></td>
+                            <td th:text="${fournisseur.telephone}"></td>
+                            <td><a th:href="@{/edit/{id}(id=${fournisseur.id})}"
+                                   class="btn btn-success"><i class="fas fa-user-edit ml-2"></i>Edit</a>
+                            </td>
+                            <td><a th:href="@{/delete/{id}(id=${fournisseur.id})}"
+                                   class="btn btn-danger"><i class="fas fa-user-times ml-2"></i>Delete</a>
+                            </td>
+                       </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+<div th:replace="fragments/footer :: footer" />
+    </div>
+</div>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+<script th:src="@{/front/plugins/common/common.min.js}"></script>
+<script th:src="@{/front/js/custom.min.js}"></script>
+<script th:src="@{/front/js/settings.js}"></script>
+<script th:src="@{/front/js/gleek.js}"></script>
+<script th:src="@{/front/js/styleSwitcher.js}"></script>
+
+<!-- Chartjs -->
+<script th:src="@{/front/./plugins/chart.js/Chart.bundle.min.js}"></script>
+<!-- Circle progress -->
+<script th:src="@{/front/./plugins/circle-progress/circle-progress.min.js}"></script>
+<!-- Datamap -->
+<script th:src="@{/front/./plugins/d3v3/index.js}"></script>
+<script th:src="@{/front/./plugins/topojson/topojson.min.js}"></script>
+<script th:src="@{/front/./plugins/datamaps/datamaps.world.min.js}"></script>
+<!-- Morrisjs -->
+<script th:src="@{/front/./plugins/raphael/raphael.min.js}"></script>
+<script th:src="@{/front/./plugins/morris/morris.min.js}"></script>
+<!-- Pignose Calender -->
+<script th:src="@{/front/./plugins/moment/moment.min.js}"></script>
+<script th:src="@{/front/./plugins/pg-calendar/js/pignose.calendar.min.js}"></script>
+<!-- ChartistJS -->
+<script th:src="@{/front/./plugins/chartist/js/chartist.min.js}"></script>
+<script th:src="@{/front/./plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js}"></script>
+
+
+
+<script th:src="@{/front/./js/dashboard/dashboard-1.js}"></script>
+
+</body>
+</html>

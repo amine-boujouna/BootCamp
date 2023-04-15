@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <div th:replace="fragments/header :: header" />
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <div th:replace="fragments/sidebar :: sidebar" />
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <div th:replace="fragments/navbar :: navbar" />
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div class="row">
+<div class="container my-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12">
+
+               <form action="#" th:action="@{/update}" th:object="${fournisseur}" method="post">
+
+
+                    <input type="hidden" th:field="*{id}" />
+                   <div class="row">
+                       <div class="form-group col-md-12">
+                           <label for="nom" class="col-form-label">nom</label> <input
+                               type="text" th:field="*{nom}" class="form-control" id="nom"
+                               placeholder="Name"> <span th:if="${#fields.hasErrors('nom')}"
+                                                         th:errors="*{nom}" class="text-danger"></span>
+                       </div>
+                       <div class="form-group col-md-12">
+                           <label for="email" class="col-form-label">Email</label> <input
+                               type="text" th:field="*{email}" class="form-control" id="email"
+                               placeholder="Email"> <span th:if="${#fields.hasErrors('email')}"
+                                                          th:errors="*{email}" class="text-danger"></span>
+                       </div>
+
+                       <div class="form-group col-md-12">
+                           <label for="telephone" class="col-form-label">telephone</label> <input
+                               type="number" th:field="*{telephone}" class="form-control"
+                               id="telephone" placeholder="telephone"> <span
+                               th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"
+                               class="text-danger"></span>
+                       </div>
+                       <div class="form-group col-md-12">
+                           <label for="adresse" class="col-form-label">adresse</label> <input
+                               type="text" th:field="*{adresse}" class="form-control" id="adresse"
+                               placeholder="adresse"> <span th:if="${#fields.hasErrors('adresse')}"
+                                                            th:errors="*{adresse}" class="text-danger"></span>
+                       </div>
+
+
+                        <div class="form-group col-md-12">
+                            <input type="submit" class="btn btn-primary" value="Update Fournisseur">
+                        </div>
+                    </div>
+               </form>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <div th:replace="fragments/footer :: footer" />
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <script th:src="@{/front/plugins/common/common.min.js}"></script>
+    <script th:src="@{/front/js/custom.min.js}"></script>
+    <script th:src="@{/front/js/settings.js}"></script>
+    <script th:src="@{/front/js/gleek.js}"></script>
+    <script th:src="@{/front/js/styleSwitcher.js}"></script>
+
+    <!-- Chartjs -->
+    <script th:src="@{/front/./plugins/chart.js/Chart.bundle.min.js}"></script>
+    <!-- Circle progress -->
+    <script th:src="@{/front/./plugins/circle-progress/circle-progress.min.js}"></script>
+    <!-- Datamap -->
+    <script th:src="@{/front/./plugins/d3v3/index.js}"></script>
+    <script th:src="@{/front/./plugins/topojson/topojson.min.js}"></script>
+    <script th:src="@{/front/./plugins/datamaps/datamaps.world.min.js}"></script>
+    <!-- Morrisjs -->
+    <script th:src="@{/front/./plugins/raphael/raphael.min.js}"></script>
+    <script th:src="@{/front/./plugins/morris/morris.min.js}"></script>
+    <!-- Pignose Calender -->
+    <script th:src="@{/front/./plugins/moment/moment.min.js}"></script>
+    <script th:src="@{/front/./plugins/pg-calendar/js/pignose.calendar.min.js}"></script>
+    <!-- ChartistJS -->
+    <script th:src="@{/front/./plugins/chartist/js/chartist.min.js}"></script>
+    <script th:src="@{/front/./plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js}"></script>
+
+
+
+    <script th:src="@{/front/./js/dashboard/dashboard-1.js}"></script>
+
+</body>
+
+</html>
